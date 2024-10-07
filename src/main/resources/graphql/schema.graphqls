@@ -1,0 +1,33 @@
+type Query {
+    # Get a list of all comptes
+    comptesList: [Compte]
+
+    # Get a single compte by its ID
+    getCompteById(id: ID!): Compte
+}
+
+type Mutation {
+    # Create a new compte
+    saveCompte(compteInput: CompteInput!): Compte
+
+    # Update an existing compte
+    updateCompte(id: ID!, compteInput: CompteInput!): Compte
+
+    # Delete a compte by its ID
+    deleteCompte(id: ID!): String
+}
+
+# The Compte type represents a bank account
+type Compte {
+    id: ID
+    type: String
+    solde: Float
+    dateCreation: String
+}
+
+# Input type for creating or updating a compte
+input CompteInput {
+    type: String
+    solde: Float
+    dateCreation: String
+}
